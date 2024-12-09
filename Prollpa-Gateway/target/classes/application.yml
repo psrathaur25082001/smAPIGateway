@@ -1,0 +1,14 @@
+server:
+  port: 8090  # API Gateway port
+
+spring:
+  main:
+    web-application-type: reactive  # Set the application type to reactive
+
+  cloud:
+    gateway:
+      routes:
+        - id: Prollpa
+          uri: http://localhost:8081  # Service One
+          predicates:
+            - Path=/**  # Forward requests starting with /auth/** to Service One
